@@ -15,11 +15,11 @@ def authenticated_stream():
     """
     if not os.path.exists(MY_TWITTER_CREDS):
         oauth_dance(APP_NAME, CONSUMER_KEY, CONSUMER_SECRET, MY_TWITTER_CREDS)
-        oauth_token, oauth_secret = read_token_file(MY_TWITTER_CREDS)
+    oauth_token, oauth_secret = read_token_file(MY_TWITTER_CREDS)
  
-        return TwitterStream(auth=OAuth(oauth_token, oauth_token_secret, 
-                                        CONSUMER_KEY, CONSUMER_SECRET),
-                             domain="stream.twitter.com")
+    return TwitterStream(auth=OAuth(oauth_token, oauth_token_secret, 
+                                    CONSUMER_KEY, CONSUMER_SECRET),
+                         domain="stream.twitter.com")
 
 
 
@@ -27,3 +27,4 @@ def authenticated_stream():
 if __name__ == "__main__":
     for message in authenticated_stream().user():
         print message
+<
