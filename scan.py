@@ -4,6 +4,7 @@ from twitter import *
 import grove_rgb_lcd as screen
 import os
 import time
+import textwrap
 
 nltk.download('vader_lexicon')
 
@@ -28,7 +29,7 @@ def authenticated_stream():
                                     CONSUMER_KEY, CONSUMER_SECRET))
 
 
-def banner(tweet):
+def banner(tweet, marquee=False):
     """
     Display text in a banner, colored with the sentiment
     """
@@ -40,7 +41,13 @@ def banner(tweet):
     print text
     text_len = len(text)
     width = min([32, text_len])
-    [screen.setText(text[i:i+width]) or time.sleep(0.1) for i in range(0, text_len)]
+
+    if marquee:
+        [screen.setText(text[i:i+width]) or time.sleep(0.1) 
+         for i in range(0, text_len)]
+    else:
+        [screen.setText(chunk) or time.sleep(0.25)
+         for chunk in textwrap.wrap(text, 32)]
 
 
 if __name__ == "__main__":
