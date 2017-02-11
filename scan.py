@@ -5,6 +5,7 @@ import grove_rgb_lcd as screen
 import os
 import time
 import textwrap
+import itertools
 
 nltk.download('vader_lexicon')
 
@@ -46,8 +47,9 @@ def banner(tweet, marquee=False):
         [screen.setText(text[i:i+width]) or time.sleep(0.1) 
          for i in range(0, text_len)]
     else:
-        [screen.setText(chunk) or time.sleep(0.25)
-         for chunk in textwrap.wrap(text, 32)]
+        chunked = textwrap.wrap(text, 16)
+        [screen.setText(''.join(chunks)) or time.sleep(0.25)
+         for chunks in itertools.zip(chunked, chunked[1:])]
 
 
 if __name__ == "__main__":
