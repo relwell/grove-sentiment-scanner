@@ -25,5 +25,5 @@ def authenticated_stream():
 
 
 if __name__ == "__main__":
-    for message in authenticated_stream().user():
+    for message in authenticated_stream().user('languagehacker'):
         print message
