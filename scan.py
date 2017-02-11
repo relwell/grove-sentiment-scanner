@@ -43,5 +43,5 @@ def banner(tweet):
 
 if __name__ == "__main__":
     for tweet in authenticated_stream().statuses.filter(track="atlanta"):
-        if tweet.get('message')
+        if tweet.get('message'):
             banner(tweet)
