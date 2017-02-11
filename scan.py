@@ -3,9 +3,9 @@ from grove_rgb_lcd import *
 import os
 
 
-APP_NAME = os.env.get('APP_NAME', 'My App')
-CONSUMER_KEY = os.env.get('CONSUMER_KEY')
-CONSUMER_SECRET = os.env.get('CONSUMER_SECRET')
+APP_NAME = os.getenv('APP_NAME', 'My App')
+CONSUMER_KEY = os.getenv('CONSUMER_KEY')
+CONSUMER_SECRET = os.getenv('CONSUMER_SECRET')
 
 MY_TWITTER_CREDS = os.path.expanduser('~/.my_app_credentials')
 
