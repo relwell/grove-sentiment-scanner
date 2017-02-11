@@ -41,6 +41,5 @@ def banner(user, text, sentiment):
 if __name__ == "__main__":
     for message in authenticated_stream().statuses.sample():
         if 'text' in message:
-            print message['user']
             print message['text']
-            banner(message['user'], message['text'], ANALYZER.polarity_scores(message['text']))
+            #banner(message['user'], message['text'], ANALYZER.polarity_scores(message['text']))
