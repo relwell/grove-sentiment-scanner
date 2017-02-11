@@ -19,7 +19,7 @@ def authenticated_stream():
  
     return TwitterStream(auth=OAuth(oauth_token, oauth_secret, 
                                     CONSUMER_KEY, CONSUMER_SECRET),
-                         domain="stream.twitter.com")
+                         domain="userstream.twitter.com")
 
 
 
