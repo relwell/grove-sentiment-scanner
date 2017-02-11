@@ -47,7 +47,7 @@ def banner(tweet, marquee=False):
          for i in range(0, text_len)]
     else:
         chunked = textwrap.wrap(text, 16)
-        [screen.setText(''.join(chunks)) or time.sleep(0.25)
+        [screen.setText(''.join(chunks)) or time.sleep(0.1)
          for chunks in zip(chunked, chunked[1:])]
 
 
