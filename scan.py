@@ -3,7 +3,7 @@ from grove_rgb_lcd import *
 import os
 
 
-APP_NAME = os.env.get('My App')
+APP_NAME = os.env.get('APP_NAME', 'My App')
 CONSUMER_KEY = os.env.get('CONSUMER_KEY')
 CONSUMER_SECRET = os.env.get('CONSUMER_SECRET')
 
