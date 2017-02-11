@@ -31,11 +31,12 @@ def banner(tweet):
     """
     Display text in a banner, colored with the sentiment
     """
-    sentiment = ANALYZER.polarity_scores(tweet['text'])
+    sentiment = ANALYZER.polarity_scores(tweet['message'])
     screen.setRGB(int(sentiment['neg'] * 255), 
                   int(sentiment['pos'] * 255), 
                   int(sentiment['neu'] * 255))
-    text = "%s %s " % (tweet['user'], tweet['text'])
+    text = "%s %s " % (tweet['user'], tweet['message'])
+    print text
     text_len = len(text)
     width = min([32, text_len])
     [screen.setText(text[i:i+width]) or time.sleep(0.1) for i in range(0, text_len)]
