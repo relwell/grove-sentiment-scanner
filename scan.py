@@ -17,7 +17,7 @@ def authenticated_stream():
         oauth_dance(APP_NAME, CONSUMER_KEY, CONSUMER_SECRET, MY_TWITTER_CREDS)
     oauth_token, oauth_secret = read_token_file(MY_TWITTER_CREDS)
  
-    return TwitterStream(auth=OAuth(oauth_token, oauth_token_secret, 
+    return TwitterStream(auth=OAuth(oauth_token, oauth_secret, 
                                     CONSUMER_KEY, CONSUMER_SECRET),
                          domain="stream.twitter.com")
 
