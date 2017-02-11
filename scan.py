@@ -33,6 +33,7 @@ def banner(user, text, sentiment):
     """
     setRGB(int(sentiment['neg'] * 255), int(sentiment['pos'] * 255), int(sentiment['neu'] * 255))
     text = "%s %s " % (user, text)
+    print text
     text_len = len(text)
     width = min([32, text_len])
     [setText(text[i:i+width]) or time.sleep(0.1) for i in range(0, text_len)]
