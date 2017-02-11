@@ -18,12 +18,11 @@ def authenticated_stream():
     oauth_token, oauth_secret = read_token_file(MY_TWITTER_CREDS)
  
     return TwitterStream(auth=OAuth(oauth_token, oauth_secret, 
-                                    CONSUMER_KEY, CONSUMER_SECRET),
-                         domain="stream.twitter.com")
+                                    CONSUMER_KEY, CONSUMER_SECRET))
 
 
 
 
 if __name__ == "__main__":
-    for message in authenticated_stream().user('languagehacker'):
+    for message in authenticated_stream().statuses.sample():
         print message
